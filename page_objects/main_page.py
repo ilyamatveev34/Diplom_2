@@ -6,12 +6,12 @@ import allure
 class MainPage(BasePage):
     @allure.step('Кликнуть по кнопке перехода в личный кабинет в хэдере')
     def click_on_personal_account_in_header(self):
-        self.wait_visibility_of_element(MainPageLocators.button_personal_account)
+        self.find_element_with_wait(MainPageLocators.button_personal_account)
         self.click_on_element(MainPageLocators.button_personal_account)
 
     @allure.step('Кликнуть по кнопке "Лента заказов" в хэдере')
     def click_header_feed_button(self):
-        self.wait_visibility_of_element(MainPageLocators.button_order_feed_in_header)
+        self.find_element_with_wait(MainPageLocators.button_order_feed_in_header)
         self.click_on_element(MainPageLocators.button_order_feed_in_header)
 
     @allure.step('Переход на страницу конструктора')
@@ -25,6 +25,7 @@ class MainPage(BasePage):
 
     @allure.step('Кликнуть по кнопке "Войти в аккаунт" на главной')
     def click_on_button_login_in_main(self):
+        self.find_element_with_wait(MainPageLocators.button_login_in_main)
         self.click_on_element(MainPageLocators.button_login_in_main)
 
     @allure.step('Проверить отображение окна о создании заказа')
@@ -53,11 +54,6 @@ class MainPage(BasePage):
         self.wait_visibility_of_element(MainPageLocators.button_close_modal)
         self.click_on_element(MainPageLocators.button_close_modal)
 
-    # @allure.step('Добавить ингредиенты')
-    # def drag_and_drop_ingredient_to_order(self):
-    #     source_element = self.find_element_with_wait(MainPageLocators.burger_ingredient)
-    #     target_element = self.find_element_with_wait(MainPageLocators.place_for_ingredients)
-    #     self.drag_and_drop_element(source_element, target_element)
 
     @allure.step('Получить количество ингредиентов')
     def get_count_of_ingredients(self):
@@ -65,6 +61,7 @@ class MainPage(BasePage):
 
     @allure.step('Кликнуть на кнопку создания заказа')
     def click_on_button_make_order(self):
+        self.find_element_with_wait(MainPageLocators.button_make_order)
         self.click_on_element(MainPageLocators.button_make_order)
 
     @allure.step('Проверить отображение окна о создании заказа')
@@ -78,15 +75,14 @@ class MainPage(BasePage):
 
     @allure.step('Кликнуть на кнопку закрытия окна о создании заказа')
     def click_on_button_close_confirmation_modal(self):
+        self.find_element_with_wait(MainPageLocators.button_close_confirmation)
         self.check_element_is_clickable(MainPageLocators.button_close_confirmation)
         self.click_on_element(MainPageLocators.button_close_confirmation)
 
     @allure.step('Добавить ингредиент')
     def drag_and_drop_ingredient_to_order(self):
-        # Получите WebElement объекты для исходного и целевого элементов
         source_element = self.find_element_with_wait(MainPageLocators.burger_ingredient)
         target_element = self.find_element_with_wait(MainPageLocators.place_for_ingredients)
-        # Перетащите элемент
         self.drag_and_drop_element(source_element, target_element)
 
     def wait_order_button_displayed(self):

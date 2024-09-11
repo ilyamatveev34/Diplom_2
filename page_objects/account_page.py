@@ -6,10 +6,12 @@ import allure
 class AccountPage(BasePage):
     @allure.step('Кликнуть по кнопке "История заказов"')
     def click_on_order_history_button(self):
+        self.find_element_with_wait(AccountPageLocators.order_history)
         self.click_on_element(AccountPageLocators.order_history)
 
     @allure.step('Кликнуть по кнопке "Выйти"')
     def click_on_logout_button(self):
+        self.find_element_with_wait(AccountPageLocators.button_logout)
         self.click_on_element(AccountPageLocators.button_logout)
 
     @allure.step('Подождать прогрузки текста описания раздела')

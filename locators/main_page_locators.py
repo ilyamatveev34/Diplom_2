@@ -6,7 +6,7 @@ class MainPageLocators:
     button_login_in_main = (By.XPATH, '//button[text() = "Войти в аккаунт"]')
 
     # Кнопка "Личный кабинет"
-    button_personal_account = (By.XPATH, '//p[text()="Личный Кабинет"]')
+    button_personal_account = (By.XPATH, './/p[text()="Личный Кабинет"]')
 
     # Кнопка "Оформить заказ"
     button_make_the_order = (By.XPATH, '//button[text()="Оформить заказ"]')
@@ -68,5 +68,8 @@ class MainPageLocators:
     number_of_order_in_modal_confirmation = (By.XPATH, '//section[contains(@class, "Modal_modal_opened")]//h2')
 
     # Кнопка с крестиком, закрывающая окно подтвержденного заказа
-    button_close_confirmation = (By.XPATH, '//section[contains(@class, "Modal_modal_opened")'
-                                           ']//button[contains(@class, "close")]')
+    button_close_confirmation = (By.XPATH, "//button[@class = 'Modal_modal__close_modified__3V5XS Modal_modal__close__TnseK']")
+
+        # (By.XPATH, '//section[contains(@class, "Modal_modal_opened")'
+        #                                    ']//button[contains(@class, "close")]')
+

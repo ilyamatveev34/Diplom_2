@@ -27,9 +27,6 @@ class BasePage:
     def send_keys_to_input(self, locator, keys):
         self.driver.find_element(*locator).send_keys(keys)
 
-    # @allure.step('Перетащить элемент')
-    # def drag_and_drop_element(self, source_element, target_element):
-    #     ActionChains(self.driver).drag_and_drop(source_element, target_element).pause(5).perform()
 
     @allure.step('Получить текст на элементе')
     def get_text_on_element(self, locator):
@@ -81,3 +78,8 @@ class BasePage:
             simulateHTML5DragAndDrop(arguments[0], arguments[1]);
             """
         self.driver.execute_script(script, source_element, target_element)
+
+    @allure.step('Скролл до элемента')
+    def scroll_to_element(self, locator):
+        element = self.find_element_with_wait(locator)
+        self.driver.execute_script('arguments[0].scrollIntoView();', element)

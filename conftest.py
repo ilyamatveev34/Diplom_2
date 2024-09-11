@@ -14,14 +14,11 @@ def driver(request):
     driver_class = request.param
     if driver_class == webdriver.Chrome:
         options = Options()
-        # options.add_argument('--window-size=1920,1080')
         options.add_argument('--incognito')
         driver = webdriver.Chrome(options=options)
         driver.set_window_size(1280, 720)
     elif driver_class == webdriver.Firefox:
         firefox_options = webdriver.FirefoxOptions()
-        # firefox_options.add_argument('--width=1920')
-        # firefox_options.add_argument('--height=1080')
         profile = FirefoxProfile()
         profile.set_preference("browser.privatebrowsing.autostart", True)
         firefox_options.profile = profile
